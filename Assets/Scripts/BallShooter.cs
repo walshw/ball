@@ -22,7 +22,7 @@ public class BallShooter : MonoBehaviour
 
     void SpawnAndShoot()
     {
-        float degs = 180 + currentDegree;
+        float degs = currentDegree - transform.eulerAngles.z;
         GameObject ball = Instantiate(ballPrefab, transform.position, Quaternion.identity);
         Vector3 direction = new Vector3(Mathf.Sin(degs * Mathf.Deg2Rad), Mathf.Cos(degs * Mathf.Deg2Rad), 0f);
         ball.GetComponent<Rigidbody2D>().AddForce(direction * speed, ForceMode2D.Impulse);
